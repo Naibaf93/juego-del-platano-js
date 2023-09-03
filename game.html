@@ -7,20 +7,54 @@
     <title>Atrapa Banana🙊</title>
 </head>
 <body>
-    <div class="game-container">
-        <canvas id="game"></canvas>
-
-        <div class="btns">
-            <button id="up">Arriba</button>
-            <button id="left">Izquierda</button>
-            <button id="right">Derecha</button>
-            <button id="down">Abajo</button>
+    <div class="page__index"> 
+        <div class="game-container">
+            <span class="level--show"> -- </span>
+            <canvas id="game"></canvas>
+    
+            <div class="btns">
+                <button id="up">↑</button>
+                <button id="left">←</button>
+                <button id="right">→</button>
+                <button id="down">↓</button>
+            </div>
+            
+            <div class="messages">
+                <p class="life">Lifes:  </p>
+                <span class="life--counter"> </span>
+                <p class="timer">Time: <i class="fa-solid fa-stopwatch" ></i></p>
+                <span class="time--counter"> 00.00 </span>
+                <p class="record">Record: <i class="fa-solid fa-flag-checkered" ></i></p>
+                <span class="record--display">--</span>
+            </div>
+    
+            <article class="message--record inactive">
+                <p>Congratulations! new record</p>
+                <i class="fa-solid fa-ranking-star"></i>
+                <p>New record: <span class="new--record"> 20.00 </span></p>
+                <button class="button--standar" id="record-play-again">Play again</button>
+            </article>
+    
+            <article class="win-without-record inactive">
+                <p>You win</p>
+                <i class="fa-solid fa-trophy"></i>            
+                <button class="button--standar" id="record-play-again2">Play again</button>
+            </article>
+    
+            <article class="message--defeat inactive">
+                <p>Game over</p>
+                <i class="fa-solid fa-ghost"></i>
+                <button class="button--standar" id="record-play-again3">Play again</button>
+            </article>
         </div>
-
-        <div class="messages">
-            <p>Parrafo de ejemplo</p>
         </div>
     </div>
+
+    <footer>
+        <div class="contact--logo">
+            <p class="contact--logo--copyright"> ©Atrapabanana coded by Fabián Huertas</p>
+          </div>
+    </footer>
 
     <script src="JS/maps.js"></script>
     <script src="JS/game.js"></script>
