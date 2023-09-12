@@ -6,11 +6,9 @@
 
 html {
   font-size: 62.5%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
 
-}
-
-body {
+ body {
     color: #fff;  
   }
 
@@ -139,5 +137,4 @@ body {
     #up, #down { 
       margin-left: 100%; 
       margin-right: 100%; 
-    }
   }
