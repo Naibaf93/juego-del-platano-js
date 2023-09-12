@@ -129,13 +129,202 @@ html {
     margin: 0;
     width: 100%;
   }
-  
-  @media (max-width: 440px) {
-    button { 
-      margin-top: 25px; 
+
+  /*Medias queries*/
+
+  @media screen and (max-width: 1020px){
+    .game-container{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "nivel nivel "
+        "main buttons "
+        "main buttons"
+        "info info"
+        ;
+        row-gap: 0;
+        padding-top: 25px;
+   
     }
-    #up, #down { 
-      margin-left: 100%; 
-      margin-right: 100%; 
+
+    .btns{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4,60px);
+        grid-template-areas: 
+        " up "
+        " down "
+        " left "
+        " right "
+
+        ;
+        row-gap: 20px;
+        justify-items: center;
+        align-items: center;
+        margin: 0;
+        grid-area: buttons;
+        align-self: center;
+        justify-self: start;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .button-big{
+        display: none;
+    }
+
+    .button-media{
+        display: block;
+    }
+    .fa-caret-left, .fa-caret-up, .fa-caret-down, .fa-caret-right{
+        font-size: 56px;
+    }
+    #up-cel{
+        grid-area: up;
+    }
+    
+    #left-cel{
+        grid-area: left;
+    }
+    
+    #right-cel{
+        grid-area: right;
+
+    }
+    
+    #down-cel{
+        grid-area: down;
+    }
+
+    .messages{
+        display: grid;
+        grid-template-columns: repeat(3, 140px);
+        grid-template-rows: repeat(2, 40px);
+        grid-template-areas: 
+        "life timer  record "
+        "life--counter time--counting  record--display"
+        ;
+        grid-area: info;
+        border: 2px solid #DA8FFD;
+        box-shadow: 0px 1px 10px #DA8FFD;
+        justify-content: center;
+        column-gap: 10px;
+    }    
+
+    .canvas{
+        justify-self: center;
+        align-self: center;
+    }
+
+    .level--show{
+        padding-left: 12px;
+    }
+
+    .welcome--contact{
+        width: 90%;
+        grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
+        padding: 20px 20px;
+        row-gap: 20px;
+    }
+
+    .contact--logo{
+        column-gap: 10px;
+    }
+
+    .message--record div .button--standar{
+        width: 200px;
+        height: 80px;
+        font-size: 18px;
+    }
+    
+}
+
+@media screen and (max-width: 600px){
+  .game-container{
+      grid-template-columns: 1fr;
+      grid-template-areas: 
+      "nivel"
+      "main "
+      "buttons"
+      "info"
+      ;
+      row-gap: 0;
   }
+
+  .btns {
+        display: grid;
+        margin-bottom: 50px;
+        grid-template-columns: repeat(3, minmax(60px, 140px));
+        grid-template-rows: repeat(3, 40px);
+        grid-template-areas: 
+        " . up ."
+        "left . right"
+        ". down ."
+        ;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto 20px;
+        grid-area: buttons;
+        align-self: center;
+        justify-self: start;
+        justify-content: center;
+    }
+    
+    .messages{
+        display: grid;
+        grid-template-columns: 130px 140px;
+        grid-template-rows: repeat(3, 30px);
+        grid-template-areas: 
+        "life life--counter"
+        "timer time--counting"
+        "record record--display"
+        ;
+        padding: 10px 20px 10px 20px;
+        justify-self: center;
+        grid-area: info;
+        align-self:center;
+        justify-self: center;
+        border: 2px solid #DA8FFD;
+        border-radius: 10px;
+        box-shadow: 0px 1px 10px #DA8FFD;
+        background-color: #580AD1;
+        width: auto;
+        justify-content: center;
+        column-gap: 10px;
+        align-self: flex-start;
+    }
+
+    #up-cel{
+        grid-area: up;
+    }
+    
+    #left-cel{
+        grid-area: left;
+        justify-self: end;
+    }
+    
+    #right-cel{
+        grid-area: right;
+        justify-self: start;
+
+    }
+    
+    #down-cel{
+        grid-area: down;
+    }
+
+    .fa-caret-left, .fa-caret-up, .fa-caret-down, .fa-caret-right{
+        font-size: 26px;
+    }
+
+    .life--counter{
+        font-size: 20px;
+        text-shadow: 1px 3px 1px #C35A7B;
+    }
+
+    .game--over--message, .winner--message{
+        width: 80%;
+    }
+    .arrow-small{
+        color: #F1C40F;
+        font-size: 40px;
+    }
 }
