@@ -46,6 +46,11 @@ function setCanvasSize() {
 
     elementSize = Math.floor(canvasSize / 10);
 
+    startGame();
+}
+
+function startGame() {
+
     console.log({canvasSize, elementSize});
 
     game.font = elementSize + "px Verdana";
@@ -63,3 +68,5 @@ function setCanvasSize() {
     // game.fillStyle = "blue";
     // game.fillText('HOLI!', 128, 78);
 }
+
+
