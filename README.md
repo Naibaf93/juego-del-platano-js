@@ -1,2 +1,2 @@
-# atrapabanana-js
-Ayuda al monito a encontrar su banana.
+# juego-del-platano-js
+Ayuda a canelita🐰 a encontrar su platano, ya que es el dia del platano🍌.
