@@ -56,8 +56,16 @@ function startGame() {
     game.font = elementSize + "px Verdana";
     game.textAlign = "end";
 
-    for (let i = 1; i <= 10; i++) {
-        game.fillText(emojis['X'], elementSize * i, elementSize);
+    const map = maps[0];
+    const mapRows = map.trim().split('\n');
+    const mapRowCols = mapRows.map(row => row.trim().split(''));
+    console.log({map, mapRows, mapRowCols});
+
+    for (let row = 1; row <= 11; row++) {
+        for (let col = 0; col < 11; col++) {
+            game.fillText(emojis[mapRowCols[row - 1][col - 1]], elementSize * col, elementSize * row);
+            
+        }
     }
 
     // game.fillStyle = 'brown';
@@ -68,5 +76,3 @@ function startGame() {
     // game.fillStyle = "blue";
     // game.fillText('HOLI!', 128, 78);
 }
-
-
