@@ -13,6 +13,10 @@ console.log(game);
 let canvasSize;
 let elementSize;
 
+const playerPosition = {
+    x: undefined,
+    y: undefined,
+};
 
 /* EVENTOS */
 
@@ -79,9 +83,17 @@ function startGame() {
             const emoji = emojis[col];
             const posX = elementSize * (colI + 1);
             const posY = elementSize * (rowI + 1);
+
+            if (col == 'O') {
+                playerPosition.x = posX;
+                playerPosition.y = posY;
+            }
+
             game.fillText(emoji, posX, posY);
         });
     });
+
+    movePlayer();
 
         // for (let row = 1; row <= 11; row++) {
         //     for (let col = 0; col < 11; col++) {
@@ -101,6 +113,10 @@ function startGame() {
 
 /* Funciones movimiento */
 
+function movePlayer() {
+    game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
+}
+
 function moveBykeys(event) {
     if (event.key == 'ArrowUp') moveUp();
      else if (event.key == 'ArrowLeft') moveLeft();
@@ -109,6 +125,8 @@ function moveBykeys(event) {
 }
 function moveUp() {
     console.log('me quiero mover hacia arriba');
+    playerPosition.y -= elementSize;
+    movePlayer();
 }
 
 function moveLeft() {
