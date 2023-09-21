@@ -16,10 +16,23 @@ let elementSize;
 
 /* EVENTOS */
 
+/*Clase 8: Crear evento que escuche botones de dirección*/
+
+const btnUp = document.querySelector("#up");
+const btnLeft = document.querySelector("#left");
+const btnRight = document.querySelector("#right");
+const btnDown = document.querySelector("#down");
+
 /* Crear evento y función que va a contener las propiedades y métodos del contexto 2D */
 
 window.addEventListener('load', setCanvasSize);
 window.addEventListener("resize", setCanvasSize);
+window.addEventListener('keydown', moveBykeys);
+
+btnUp.addEventListener("click", moveUp);
+btnLeft.addEventListener("click", moveLeft);
+btnRight.addEventListener("click", moveRight);
+btnDown.addEventListener("click", moveDown);
 
 /* FUNCIONES */
 
@@ -84,4 +97,27 @@ function startGame() {
     // game.font = '16px Verdana';
     // game.fillStyle = "blue";
     // game.fillText('HOLI!', 128, 78);
+}
+
+/* Funciones movimiento */
+
+function moveBykeys(event) {
+    if (event.key == 'ArrowUp') moveUp();
+     else if (event.key == 'ArrowLeft') moveLeft();
+     else if (event.key == 'ArrowRight') moveRight();
+     else if (event.key == 'ArrowDown') moveDown();
+}
+function moveUp() {
+    console.log('me quiero mover hacia arriba');
+}
+
+function moveLeft() {
+    console.log('me quiero mover hacia la izquierda');
+}
+
+function moveRight() {
+    console.log('me quiero mover hacia la derecha');
+}
+function moveDown() {
+    console.log('me quiero mover hacia abajo');
 }
