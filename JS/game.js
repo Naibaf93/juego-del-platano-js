@@ -12,6 +12,7 @@ console.log(game);
 
 let canvasSize;
 let elementSize;
+let level = 0;
 
 const playerPosition = {
     x: undefined,
@@ -80,7 +81,12 @@ function startGame() {
     game.font = elementSize + "px Verdana";
     game.textAlign = "end";
 
-    const map = maps[0];
+    const map = maps[level];
+
+    if (!map) {
+        gameWin();
+        return;
+    }
     const mapRows = map.trim().split('\n');
     const mapRowCols = mapRows.map(row => row.trim().split(''));
     console.log({map, mapRows, mapRowCols});
@@ -131,7 +137,7 @@ function startGame() {
     // game.fillText('HOLI!', 128, 78);
 }
 
-/* Funciones movimiento */
+/* Funciones movimiento y deteccion de objetos */
 
 function movePlayer() {
     const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
@@ -145,7 +151,7 @@ function movePlayer() {
 
 
     if (giftCollision) {
-        console.log('Subiste de nivel cheñol!');
+        levelWin();
     } else if (enemyCollison) {
         console.log('Chocaste con un enemigo :(')
     }
@@ -202,4 +208,16 @@ function moveDown() {
         playerPosition.y += elementSize;
         startGame();
     }
+}
+
+/* Funciones nivel */
+
+function levelWin() {
+    console.log('subiste de nivel');
+    level++;
+    startGame();
+}
+
+function gameWin() {
+    console.log('terminaste el juego :3');
 }
