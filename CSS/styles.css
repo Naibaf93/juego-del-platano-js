@@ -16,9 +16,8 @@ html {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    padding: 10rem 3rem;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
     background-color: #e6b68b;
     background-image: linear-gradient(#cd966c 2.6px, transparent 2.6px),linear-gradient(to right, #cd966c 2.6px, #e6b68b 2.6px);
     background-size: 52px 52px;
@@ -27,10 +26,10 @@ html {
   .game-container {
     height: 100%;
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
@@ -39,16 +38,15 @@ html {
     "main main buttons"
     "main main info"
     ;
-    row-gap: 15px;
-    column-gap: 10px;
+    row-gap: 1.5rem;
+    column-gap: 1rem;
     position: fixed;
   }
   
   canvas {
     border: 4px solid #8d4925;
-    border-radius: 8px;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    border-radius: .8rem;
+    margin-top: -2rem;
     justify-self: center;
     grid-area: main;
     background-color: #f5e1ce;
@@ -56,8 +54,8 @@ html {
   
   .btns {
     display: grid;
-    grid-template-columns: repeat(3, minmax(60px, 140px));
-    grid-template-rows: repeat(3, 60px);
+    grid-template-columns: repeat(3, minmax(6rem, 14rem));
+    grid-template-rows: repeat(3, 6rem);
     grid-template-areas: 
     " . up ."
     "left . right"
@@ -65,11 +63,11 @@ html {
     ;
     justify-items: center;
     align-items: center;
-    margin: 0 auto 20px;
+    margin: 0 auto 2rem;
     grid-area: buttons;
     align-self: center;
     justify-self: start;
-    font-size: 18px;
+    font-size: 2rem;
   }
 
   #up{
@@ -94,10 +92,12 @@ html {
     border-color: #9a5833;
     font-family: inherit;
     margin: 0;
-    padding: 5px 20px;
-    width: 100px;
+    padding: 1rem 2rem;
+    width: 12rem;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
     transition: all ease 0.3s;
+    font-size: 1.4rem;
+    font-weight: 700;
   }
 
   button:hover{
@@ -106,11 +106,9 @@ html {
     border-color: #9a5833;
     font-family: inherit;
     font-weight: 500;
-    margin: 0;
-    padding: 5px 20px;
-    width: 100px;
     color: #fff;
     transition: all ease 0.3s;
+    font-weight: 700;
   }
 
   button:not(:last-child) {
@@ -121,14 +119,67 @@ html {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    width: 80%;
-    max-width: 460px;
+    width: 100%;
+    max-width: 45rem;
+    height: 10rem;
+    background-color: #f5e1ce;
+    border-radius: 3rem;
+    font-size: 1.6rem;
+    font-weight: 700;        
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.3);
   }
-  
+
+  .messages p  {
+    padding-left: 5rem;
+  }
+
+  .time-counter {
+    padding-left: 5rem;
+  }
+
+  .record-display {
+    padding-left: 5rem;
+  }
+
+  .message--record p {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+  .win-without-record,
+  .message--defeat {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
   p {
     display: block;
     margin: 0;
     width: 100%;
+  }
+
+  footer {
+    background-color: #f5e1ce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.7rem;
+  }
+
+  .contact--logo--copyright {
+    font-size: 1.8rem;
+    color: #8d4925;
+  }
+
+  .contact--logo--copyright span {
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  .contact--logo--copyright a {
+    text-decoration: none;
+    color: #8d4925;
+    font-weight: 700;
   }
 
   /*Medias queries*/
@@ -143,13 +194,13 @@ html {
         "info info"
         ;
         row-gap: 0;
-        padding-top: 25px;
+        padding-top: 2.5rem;
    
     }
 
     .btns{
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(4,60px);
+        grid-template-rows: repeat(4, 6rem);
         grid-template-areas: 
         " up "
         " down "
@@ -157,14 +208,14 @@ html {
         " right "
 
         ;
-        row-gap: 20px;
+        row-gap: 2rem;
         justify-items: center;
         align-items: center;
         margin: 0;
         grid-area: buttons;
         align-self: center;
         justify-self: start;
-        font-size: 18px;
+        font-size: 1.8rem;
         width: 100%;
     }
 
@@ -176,7 +227,7 @@ html {
         display: block;
     }
     .fa-caret-left, .fa-caret-up, .fa-caret-down, .fa-caret-right{
-        font-size: 56px;
+        font-size: 5.6rem;
     }
     #up-cel{
         grid-area: up;
@@ -197,8 +248,8 @@ html {
 
     .messages{
         display: grid;
-        grid-template-columns: repeat(3, 140px);
-        grid-template-rows: repeat(2, 40px);
+        grid-template-columns: repeat(3, 14rem);
+        grid-template-rows: repeat(2, 4rem);
         grid-template-areas: 
         "life timer  record "
         "life--counter time--counting  record--display"
@@ -207,7 +258,7 @@ html {
         border: 2px solid #DA8FFD;
         box-shadow: 0px 1px 10px #DA8FFD;
         justify-content: center;
-        column-gap: 10px;
+        column-gap: 1rem;
     }    
 
     .canvas{
@@ -216,24 +267,24 @@ html {
     }
 
     .level--show{
-        padding-left: 12px;
+        padding-left: 1.2rem;
     }
 
     .welcome--contact{
         width: 90%;
-        grid-template-columns: repeat(auto-fit,minmax(250px, 1fr));
-        padding: 20px 20px;
-        row-gap: 20px;
+        grid-template-columns: repeat(auto-fit,minmax(25rem, 1fr));
+        padding: 2rem;
+        row-gap: 2rem;
     }
 
     .contact--logo{
-        column-gap: 10px;
+        column-gap: 1rem;
     }
 
     .message--record div .button--standar{
-        width: 200px;
-        height: 80px;
-        font-size: 18px;
+        width: 20rem;
+        height: 8rem;
+        font-size: 1.8rem;
     }
     
 }
@@ -252,9 +303,9 @@ html {
 
   .btns {
         display: grid;
-        margin-bottom: 50px;
-        grid-template-columns: repeat(3, minmax(60px, 140px));
-        grid-template-rows: repeat(3, 40px);
+        margin-bottom: 5rem;
+        grid-template-columns: repeat(3, minmax(6rem, 14rem));
+        grid-template-rows: repeat(3, 4rem);
         grid-template-areas: 
         " . up ."
         "left . right"
@@ -271,25 +322,25 @@ html {
     
     .messages{
         display: grid;
-        grid-template-columns: 130px 140px;
-        grid-template-rows: repeat(3, 30px);
+        grid-template-columns: 13rem 14rem;
+        grid-template-rows: repeat(3, 3rem);
         grid-template-areas: 
         "life life--counter"
         "timer time--counting"
         "record record--display"
         ;
-        padding: 10px 20px 10px 20px;
+        padding: 1rem 2rem;
         justify-self: center;
         grid-area: info;
         align-self:center;
         justify-self: center;
         border: 2px solid #DA8FFD;
-        border-radius: 10px;
+        border-radius: 1rem;
         box-shadow: 0px 1px 10px #DA8FFD;
         background-color: #580AD1;
         width: auto;
         justify-content: center;
-        column-gap: 10px;
+        column-gap: 1rem;
         align-self: flex-start;
     }
 
@@ -317,7 +368,7 @@ html {
     }
 
     .life--counter{
-        font-size: 20px;
+        font-size: 2rem;
         text-shadow: 1px 3px 1px #C35A7B;
     }
 
@@ -326,6 +377,18 @@ html {
     }
     .arrow-small{
         color: #F1C40F;
-        font-size: 40px;
+        font-size: 4rem;
+    }
+
+    footer {
+        padding: 1.2rem;
+    }
+  
+    .contact--logo--copyright {
+      font-size: 1.4rem;
+    }
+  
+    .contact--logo--copyright span {
+      font-size: 2rem;
     }
 }
