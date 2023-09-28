@@ -21,7 +21,9 @@ const playerPosition = {
 const giftPosition = {
     x: undefined,
     y: undefined,
-}
+};
+
+let enemyPositions = [];
 
 /* EVENTOS */
 
@@ -83,7 +85,9 @@ function startGame() {
     const mapRowCols = mapRows.map(row => row.trim().split(''));
     console.log({map, mapRows, mapRowCols});
 
+    enemyPositions = [];
     game.clearRect(0,0,canvasSize, canvasSize);
+
     mapRowCols.forEach((row, rowI) => {
         row.forEach((col, colI) => {
             const emoji = emojis[col];
@@ -98,6 +102,11 @@ function startGame() {
             } else if (col == 'I') {
                 giftPosition.x = posX;
                 giftPosition.y = posY; 
+            } else if (col == 'X') {
+                enemyPositions.push({
+                    x: posX,
+                    y: posY,
+                });
             }
 
             game.fillText(emoji, posX, posY);
@@ -128,11 +137,19 @@ function movePlayer() {
     const giftCollisionX = playerPosition.x.toFixed(3) == giftPosition.x.toFixed(3);
     const giftCollisionY = playerPosition.y.toFixed(3) == giftPosition.y.toFixed(3);
     const giftCollision = giftCollisionX && giftCollisionY;
+    const enemyCollison = enemyPositions.find(enemy => {
+        const enemyCollisionX = enemy.x == playerPosition.x;
+        const enemyCollisionY = enemy.y == playerPosition.y;    
+        return enemyCollisionX && enemyCollisionY;
+    });
 
 
     if (giftCollision) {
         console.log('Subiste de nivel cheñol!');
+    } else if (enemyCollison) {
+        console.log('Chocaste con un enemigo :(')
     }
+
     game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
 
