@@ -13,6 +13,7 @@ console.log(game);
 let canvasSize;
 let elementSize;
 let level = 0;
+let live = 3;
 
 const playerPosition = {
     x: undefined,
@@ -152,8 +153,8 @@ function movePlayer() {
 
     if (giftCollision) {
         levelWin();
-    } else if (enemyCollison) {
-        console.log('Chocaste con un enemigo :(')
+    } else if (enemyCollison) { 
+        levelFail();
     }
 
     game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
@@ -215,6 +216,21 @@ function moveDown() {
 function levelWin() {
     console.log('subiste de nivel');
     level++;
+    startGame();
+}
+
+function levelFail() {
+    console.log('Explosion');
+    live--;
+
+    console.log(live);
+     
+    if (live <= 0) {
+        level = 0;
+        live = 3;
+    }
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
     startGame();
 }
 
