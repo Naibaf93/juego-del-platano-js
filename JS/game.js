@@ -26,6 +26,7 @@ const giftPosition = {
 };
 
 let enemyPositions = [];
+const firePosition = [];
 
 /* EVENTOS */
 
@@ -115,12 +116,13 @@ function startGame() {
                     y: posY,
                 });
             }
-
+            firePosition.forEach(fire => game.fillText(emojis['BOMB_COLLISION'],fire.x,fire.y));
             game.fillText(emoji, posX, posY);
         });
     });
 
     movePlayer();
+
 
         // for (let row = 1; row <= 11; row++) {
         //     for (let col = 0; col < 11; col++) {
@@ -153,10 +155,11 @@ function movePlayer() {
 
     if (giftCollision) {
         levelWin();
-    } else if (enemyCollison) { 
-        levelFail();
+    } else if (enemyCollison) {
+        firePosition.push(playerPosition.x, playerPosition.y, enemyCollison)
+        levelFail();       
     }
-
+    
     game.fillText(emojis['PLAYER'], playerPosition.x, playerPosition.y);
 }
 
@@ -219,7 +222,7 @@ function levelWin() {
     startGame();
 }
 
-function levelFail() {
+function levelFail() { 
     console.log('Explosion');
     live--;
 
@@ -237,3 +240,8 @@ function levelFail() {
 function gameWin() {
     console.log('terminaste el juego :3');
 }
+
+/* Renderizar fuego */
+function renderFire() {
+    game.fillText(emojis['BOMB_COLLISION'], playerPosition.x, playerPosition.y)
+} 
