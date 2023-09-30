@@ -26,7 +26,7 @@ const giftPosition = {
 };
 
 let enemyPositions = [];
-const firePosition = [];
+let firePosition = [];
 
 /* EVENTOS */
 
@@ -156,6 +156,8 @@ function movePlayer() {
     if (giftCollision) {
         levelWin();
     } else if (enemyCollison) {
+        /* se hace dentro esta funcion  por que aca se detectan las colisiones */
+
         firePosition.push(playerPosition.x, playerPosition.y, enemyCollison)
         levelFail();       
     }
@@ -219,6 +221,7 @@ function moveDown() {
 function levelWin() {
     console.log('subiste de nivel');
     level++;
+    firePosition=[];
     startGame();
 }
 
@@ -231,9 +234,11 @@ function levelFail() {
     if (live <= 0) {
         level = 0;
         live = 3;
+        firePosition=[]; 
     }
+    
     playerPosition.x = undefined;
-    playerPosition.y = undefined;
+    playerPosition.y = undefined;  
     startGame();
 }
 
