@@ -37,6 +37,10 @@ const btnLeft = document.querySelector("#left");
 const btnRight = document.querySelector("#right");
 const btnDown = document.querySelector("#down");
 
+/* Clase 16 sistema de vidad y corazones */
+
+const spanLives = document.querySelector("#life--counter");
+
 /* Crear evento y función que va a contener las propiedades y métodos del contexto 2D */
 
 window.addEventListener('load', setCanvasSize);
@@ -93,6 +97,7 @@ function startGame() {
     const mapRowCols = mapRows.map(row => row.trim().split(''));
     console.log({map, mapRows, mapRowCols});
 
+    showLives();
     enemyPositions = [];
     game.clearRect(0,0,canvasSize, canvasSize);
 
@@ -249,4 +254,10 @@ function gameWin() {
 /* Renderizar fuego */
 function renderFire() {
     game.fillText(emojis['BOMB_COLLISION'], playerPosition.x, playerPosition.y)
-} 
+}
+
+/* Mostrar vidad */
+
+function showLives() {
+    spanLives.innerHTML = emojis['HEART'].repeat(live);
+}
