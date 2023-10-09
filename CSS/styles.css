@@ -367,11 +367,6 @@ html {
         font-size: 26px;
     }
 
-    .life--counter{
-        font-size: 2rem;
-        text-shadow: 1px 3px 1px #C35A7B;
-    }
-
     .game--over--message, .winner--message{
         width: 80%;
     }

@@ -15,6 +15,10 @@ let elementSize;
 let level = 0;
 let live = 3;
 
+let timeStart;
+let timePlayer;
+let timeInterval;
+
 const playerPosition = {
     x: undefined,
     y: undefined,
@@ -39,7 +43,16 @@ const btnDown = document.querySelector("#down");
 
 /* Clase 16 sistema de vidad y corazones */
 
-const spanLives = document.querySelector("#life--counter");
+const spanLives = document.querySelector(".life--counter");
+
+/* Clase 17 sistema de tiempo y puntaje */
+
+const spanTime = document.querySelector(".time-counter");
+
+/* Clase 19 guardando records del jugador */
+
+const result = document.querySelector(".record-display");
+const pRecord = document.querySelector(".new-record");
 
 /* Crear evento y función que va a contener las propiedades y métodos del contexto 2D */
 
@@ -92,6 +105,12 @@ function startGame() {
     if (!map) {
         gameWin();
         return;
+    }
+
+    if (!timeStart) {
+        timeStart = Date.now();
+        timeInterval = setInterval(showTime, 100);
+        showRecord();
     }
     const mapRows = map.trim().split('\n');
     const mapRowCols = mapRows.map(row => row.trim().split(''));
@@ -240,6 +259,7 @@ function levelFail() {
         level = 0;
         live = 3;
         firePosition=[]; 
+        timeStart = undefined;
     }
     
     playerPosition.x = undefined;
@@ -249,6 +269,24 @@ function levelFail() {
 
 function gameWin() {
     console.log('terminaste el juego :3');
+    clearInterval(timeInterval);
+
+    const recordTime = localStorage.getItem('record_time');
+    const playerTime = Date.now() - timeStart;  
+
+
+    if(recordTime) {
+        if (recordTime >= playerTime) {
+            localStorage.setItem('record_time', playerTime);
+            pRecord.innerHTML = localStorage.getItem('record_time');;
+        } else { 
+            console.log('lo siento, no haz superado el record aun :(')
+        }
+    } else {
+        localStorage.setItem('record_time', playerTime);
+    }
+
+    console.log({recordTime, playerTime});
 }
 
 /* Renderizar fuego */
@@ -261,3 +299,23 @@ function renderFire() {
 function showLives() {
     spanLives.innerHTML = emojis['HEART'].repeat(live);
 }
+
+/* Clase 19 mostrar record */
+
+function showRecord() {
+    result.innerHTML = localStorage.getItem('record_time');
+}
+
+/* Mostrar tiempo */
+
+function showTime() {
+    spanTime.innerHTML = Date.now() - timeStart;
+}
+
+// function timeFormat(time_msec) {
+//     const time = ~~(time_msec / 1000);
+//     const min = (time / 60) | 0;
+//     const sec = time - (min * 60);
+//     const msec = ((time_msec / 10) | 0 - (time * 100));
+//     return min + ' : ' + ((sec < 10 ? '0' : 0) + sec) + ' : ' ((msec < 10 ? '0' : 0) + msec);
+// }
