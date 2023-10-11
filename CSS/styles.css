@@ -247,7 +247,6 @@ html {
     }
 
     .messages{
-        display: grid;
         grid-template-columns: repeat(3, 14rem);
         grid-template-rows: repeat(2, 4rem);
         grid-template-areas: 
@@ -255,8 +254,6 @@ html {
         "life--counter time--counting  record--display"
         ;
         grid-area: info;
-        border: 2px solid #DA8FFD;
-        box-shadow: 0px 1px 10px #DA8FFD;
         justify-content: center;
         column-gap: 1rem;
     }    
@@ -321,7 +318,6 @@ html {
     }
     
     .messages{
-        display: grid;
         grid-template-columns: 13rem 14rem;
         grid-template-rows: repeat(3, 3rem);
         grid-template-areas: 
@@ -334,10 +330,7 @@ html {
         grid-area: info;
         align-self:center;
         justify-self: center;
-        border: 2px solid #DA8FFD;
         border-radius: 1rem;
-        box-shadow: 0px 1px 10px #DA8FFD;
-        background-color: #580AD1;
         width: auto;
         justify-content: center;
         column-gap: 1rem;

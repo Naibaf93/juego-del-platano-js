@@ -78,6 +78,8 @@ function setCanvasSize() {
         canvasSize = Math.floor(window.innerHeight * 0.7);
     }
 
+    canvasSize = canvasSize.toFixed(3);
+
     canvas.setAttribute('width', canvasSize);
     canvas.setAttribute('height', canvasSize);
 
@@ -89,6 +91,11 @@ function setCanvasSize() {
     //Establecer el tamaño de un elemento del canvas(10x10)
 
     elementSize = Math.floor(canvasSize / 10);
+
+    /* Clase 20 ubicando al jugador si hacemos resize */
+
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
 
     startGame();
 }
