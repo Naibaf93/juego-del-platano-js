@@ -41,6 +41,13 @@ const btnLeft = document.querySelector("#left");
 const btnRight = document.querySelector("#right");
 const btnDown = document.querySelector("#down");
 
+/* Clase 22 reto de crear un boton o botones que reinicien el juego */
+
+const btnReset = document.querySelector("#record-play-again");
+const btnReset1 = document.querySelector("#record-play-again2");
+const btnReset2 = document.querySelector("#record-play-again3");
+
+
 /* Clase 16 sistema de vidad y corazones */
 
 const spanLives = document.querySelector(".life--counter");
@@ -64,6 +71,13 @@ btnUp.addEventListener("click", moveUp);
 btnLeft.addEventListener("click", moveLeft);
 btnRight.addEventListener("click", moveRight);
 btnDown.addEventListener("click", moveDown);
+
+/* Clase 22 reto de crear un boton o botones que reinicien el juego */
+
+btnReset.addEventListener("click", resetGame);
+btnReset1.addEventListener("click", resetGame);
+btnReset2.addEventListener("click", resetGame);
+
 
 /* FUNCIONES */
 
@@ -294,6 +308,12 @@ function gameWin() {
     }
 
     console.log({recordTime, playerTime});
+}
+
+/* Clase 22 reto de crear un boton o botones que reinicien el juego */
+
+function resetGame() {
+    location.reload();
 }
 
 /* Renderizar fuego */
