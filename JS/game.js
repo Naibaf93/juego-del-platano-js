@@ -19,6 +19,12 @@ let timeStart;
 let timePlayer;
 let timeInterval;
 
+const messages = {
+    levelUp: "Chi cheñonl!🐰",
+    gameOver: "Game over😔",
+    gameWon: "You win🎉",
+};
+
 const playerPosition = {
     x: undefined,
     y: undefined,
@@ -267,6 +273,7 @@ function levelWin() {
     console.log('subiste de nivel');
     level++;
     firePosition=[];
+    renderMessage(messages.levelUp);
     startGame();
 }
 
@@ -337,6 +344,16 @@ function showRecord() {
 
 function showTime() {
     spanTime.innerHTML = Date.now() - timeStart;
+}
+
+/* Renderizar mensajes */
+
+function renderMessage(message) {
+    game.font = elementSize + "px Cherry Bomb One";
+    game.fontWeight = "bold";
+    game.fillStyle = "#c27434";
+    game.textAlign = "center";
+    game.fillText(message, canvasSize / 2, canvasSize / 2);
 }
 
 // function timeFormat(time_msec) {
