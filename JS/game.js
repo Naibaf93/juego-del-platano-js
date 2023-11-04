@@ -145,7 +145,7 @@ function startGame() {
 
     showLives();
     enemyPositions = [];
-    game.clearRect(0,0,canvasSize, canvasSize);
+    clearCanvas();
 
     mapRowCols.forEach((row, rowI) => {
         row.forEach((col, colI) => {
@@ -323,6 +323,22 @@ function resetGame() {
     location.reload();
 }
 
+/* Limpiar canva */
+
+function clearCanvas() {
+    game.clearRect(0, 0, canvasSize, canvasSize);
+  }
+
+/* Renderizar mensajes */
+
+function renderMessage(message) {
+    game.font = elementSize + "px Verdana";
+    game.fontWeight = "bold";
+    game.fillStyle = "#c27434";
+    game.textAlign = "center";
+    game.fillText(message, canvasSize / 2, canvasSize / 2);
+}
+
 /* Renderizar fuego */
 function renderFire() {
     game.fillText(emojis['BOMB_COLLISION'], playerPosition.x, playerPosition.y)
@@ -344,16 +360,6 @@ function showRecord() {
 
 function showTime() {
     spanTime.innerHTML = Date.now() - timeStart;
-}
-
-/* Renderizar mensajes */
-
-function renderMessage(message) {
-    game.font = elementSize + "px Cherry Bomb One";
-    game.fontWeight = "bold";
-    game.fillStyle = "#c27434";
-    game.textAlign = "center";
-    game.fillText(message, canvasSize / 2, canvasSize / 2);
 }
 
 // function timeFormat(time_msec) {
