@@ -20,7 +20,7 @@ let timePlayer;
 let timeInterval;
 
 const messages = {
-    levelUp: "Chi cheñonl!🐰",
+    levelUp: "Chi cheñonl!🍌",
     gameOver: "Game over😔",
     gameWon: "You win🎉",
 };
@@ -66,6 +66,7 @@ const spanTime = document.querySelector(".time-counter");
 
 const result = document.querySelector(".record-display");
 const pRecord = document.querySelector(".new-record");
+const sLevel = document.querySelector(".level"); 
 
 /* Crear evento y función que va a contener las propiedades y métodos del contexto 2D */
 
@@ -146,6 +147,8 @@ function startGame() {
     showLives();
     enemyPositions = [];
     clearCanvas();
+
+    sLevel.innerHTML = `    ${level + 1}/${maps.length}`;
 
     mapRowCols.forEach((row, rowI) => {
         row.forEach((col, colI) => {
@@ -272,7 +275,9 @@ function moveDown() {
 function levelWin() {
     console.log('subiste de nivel');
     level++;
+    clearCanvas();
     firePosition=[];
+    sLevel.innerHTML = ` ${level}/${maps.length}`;
     renderMessage(messages.levelUp);
     startGame();
 }

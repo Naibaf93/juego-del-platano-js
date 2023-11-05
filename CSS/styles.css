@@ -133,14 +133,23 @@ html {
     padding-left: 5rem;
   }
 
+  
   .time-counter {
+    padding-left: 4.5rem;
+  }
+  .record-display  {
     padding-left: 5rem;
   }
 
-  .record-display {
-    padding-left: 5rem;
+  .life--counter,
+  .level { 
+    padding-left: 6rem;
   }
 
+  .messages-button {
+    display: flex;
+    justify-content: space-evenly;
+  }
   .message--record p {
     font-size: 1.6rem;
     font-weight: 700;
