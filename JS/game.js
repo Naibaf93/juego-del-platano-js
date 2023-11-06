@@ -22,7 +22,6 @@ let timeInterval;
 const messages = {
     levelUp: "Chi cheñonl!🍌",
     gameOver: "Game over😔",
-    gameWon: "You win🎉",
 };
 
 const playerPosition = {
@@ -37,6 +36,8 @@ const giftPosition = {
 
 let enemyPositions = [];
 let firePosition = [];
+
+let gameRunning = true;
 
 /* EVENTOS */
 
@@ -122,6 +123,10 @@ function setCanvasSize() {
 }
 
 function startGame() {
+
+    if(!gameRunning) {
+        return;
+    }
 
     console.log({canvasSize, elementSize});
 
@@ -294,13 +299,17 @@ function levelFail() {
         firePosition=[]; 
         timeStart = undefined;
         document.querySelector('.message--defeat').classList.remove('inactive');
+        clearCanvas();
+        renderMessage(messages.gameOver);
+        gameRunning = false;
     }
     
     playerPosition.x = undefined;
     playerPosition.y = undefined; 
 
-     
-    startGame();
+    if(gameRunning) {
+        startGame();
+    } 
 }
 
 function gameWin() {
