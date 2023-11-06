@@ -161,6 +161,10 @@ html {
     font-weight: 700;
   }
 
+  .inactive {
+    display: none;
+  }
+
   p {
     display: block;
     margin: 0;

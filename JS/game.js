@@ -293,10 +293,13 @@ function levelFail() {
         live = 3;
         firePosition=[]; 
         timeStart = undefined;
+        document.querySelector('.message--defeat').classList.remove('inactive');
     }
     
     playerPosition.x = undefined;
-    playerPosition.y = undefined;  
+    playerPosition.y = undefined; 
+
+     
     startGame();
 }
 
@@ -319,6 +322,8 @@ function gameWin() {
         localStorage.setItem('record_time', playerTime);
     }
 
+    document.querySelector('.win-without-record').classList.remove('inactive');
+    
     console.log({recordTime, playerTime});
 }
 
@@ -359,6 +364,10 @@ function showLives() {
 
 function showRecord() {
     result.innerHTML = localStorage.getItem('record_time');
+}
+
+function newRecord() {
+    document.querySelector('.message--record').classList.remove('inactive')
 }
 
 /* Mostrar tiempo */
